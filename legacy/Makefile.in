@@ -60,7 +60,7 @@ BINRLS=$(BINDIR)/Release
 CFLAGS= \
 	@CFLAGS@ \
 	-fPIC \
-	-Isrc/include
+	-Isource
 
 LDFLAGS=\
 	@LDFLAGS@
