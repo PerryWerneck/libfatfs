@@ -22,7 +22,7 @@ AC_PREREQ([2.69])
 
 dnl Initialise automake with the package name, version and
 dnl bug-reporting address.
-AC_INIT([libfatfs],[0.15],[perry.werneck@gmail.com],[libudjat],[https://github.com/PerryWerneck/libudjat.git])
+AC_INIT([libfatfs],[0.16],[perry.werneck@gmail.com],[libfatfs],[http://elm-chan.org/fsw/ff/00index_e.html])
 
 dnl Place auxilliary scripts here.
 AC_CONFIG_AUX_DIR([scripts])

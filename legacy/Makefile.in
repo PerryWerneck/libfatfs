@@ -18,7 +18,7 @@
 #---[ Library configuration ]------------------------------------------------------------
 
 SOURCES= \
-	source/diskio.c \
+	library/diskio.c \
 	source/ff.c \
 	source/ffsystem.c \
 	source/ffunicode.c
