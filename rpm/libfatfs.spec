@@ -17,7 +17,7 @@
 
 
 Name:			libfatfs
-Version:		0.16.0
+Version: 0.16.0
 Release:		0
 Summary:		FAT file system library for embedded systems
 License:		LGPL-3.0-only
