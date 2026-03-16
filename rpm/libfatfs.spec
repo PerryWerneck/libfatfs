@@ -17,8 +17,8 @@
 
 
 Name:			libfatfs
-Version:		0.15
-Release:		1
+Version:		0.16.0
+Release:		0
 Summary:		FAT file system library for embedded systems
 License:		LGPL-3.0-only
 Group:			System/Libraries
@@ -43,10 +43,6 @@ BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
 BuildRequires:	libtool
-Source200:      autogen.sh
-Source201:      Makefile.in
-Source202:      configure.ac
-Source203:		pkgconfig.pc.in
 %endif
 
 %description
@@ -91,17 +87,11 @@ export CC=gcc-4.8
 export CXX=g++-4.8 
 %endif
 
-install --mode=644 %{S:4} source/diskio.c
-install --mode=644 %{S:5} source/ffconf.h
-
 %if 0%{?suse_version} >= 1504
 install --mode=644 %{S:1} meson.build
 %meson
 %else
-install --mode=755 %{S:200} .
-install --mode=644 %{S:201} .
-install --mode=644 %{S:202} .
-install --mode=644 %{S:203} .
+ln -f legacy/* .
 NOCONFIGURE=1 ./autogen.sh
 %configure
 %endif

@@ -1,7 +1,7 @@
 Format: 3.0 (native)
 Source: libfatfs
 Version: 0.16.0
-Binary: libfatfs
+Binary: libudjat
 Maintainer: Perry Werneck <perry.werneck@gmail.com>
 Architecture: any
 Build-Depends: debhelper (>= 7), meson, pkg-config
