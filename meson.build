@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: LGPL-3.0-or-later 
 
-# Copyright (C) 2025 Perry Werneck <perry.werneck@gmail.com>
+# Copyright (C) 2026 Perry Werneck <perry.werneck@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published
@@ -62,8 +62,6 @@ endif
 
 add_project_arguments(cc.get_supported_arguments(compiler_flags), language: 'c')
 
-lib_includes = ['src/include']
-
 lib_src = [
   'library/diskio.c', 
   'source/ff.c',
@@ -96,9 +94,9 @@ static_library = declare_dependency(
     lib_src,
     install: true,
     c_args: [ '-fno-lto' ],
-    include_directories: [ 'source' ],
+    include_directories: [ 'include', 'include/fatfs' ],
   ),
-  include_directories: [ 'source' ],
+  include_directories: [ 'include' ],
 )
 
 dynamic_library = declare_dependency(
@@ -108,18 +106,18 @@ dynamic_library = declare_dependency(
     install: true,
     version : libversion,
     soversion : libversion,
-    include_directories: [ 'source' ],
+    include_directories: [ 'include', 'include/fatfs' ],
   ),
-  include_directories: [ 'source' ],
+  include_directories: [ 'include' ],
 )
 
 #
 # Install headers
 #
 install_headers(
-  'source/diskio.h',
-  'source/ffconf.h', 
-  'source/ff.h',
+  'include/fatfs/diskio.h',
+  'include/fatfs/ffconf.h', 
+  'include/fatfs/ff.h',
   subdir: 'fatfs'  
 )
 
