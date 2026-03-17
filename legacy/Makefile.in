@@ -60,7 +60,8 @@ BINRLS=$(BINDIR)/Release
 CFLAGS= \
 	@CFLAGS@ \
 	-fPIC \
-	-Isource
+	-Iinclude \
+	-Iinclude/fatfs
 
 LDFLAGS=\
 	@LDFLAGS@
