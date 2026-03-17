@@ -1,0 +1,29 @@
+Source: libfatfs
+Section: unknown
+Priority: optional
+Maintainer: Perry Werneck <perry.werneck@gmail.com>
+Build-Depends: debhelper (>= 7), meson, pkg-config
+
+Package: libfatfs
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Provides: libfatfs (= ${binary:Version}), libfatfs0 (= ${binary:Version})
+Description: Udjat core library.
+ Udjat core library.
+
+Package: libfatfs-dev
+Architecture: any
+Provides: libfatfs-dev (= ${binary:Version}), libfatfs0-dev (= ${binary:Version})
+Section: libdevel
+Depends: ${misc:Depends}, libfatfs (= ${binary:Version}), pkg-config
+libsystemd-dev 
+Description: libfatfs development files.
+ Development headers for libfatfs
+
+Package: libfatfs-dbg
+Architecture: any
+Depends: libfatfs (= ${binary:Version})
+Description: Debugging symbols for libfatfs
+ This package contains the debugging symbols for libfatfs.
+

@@ -1,0 +1,9 @@
+-------------------------------------------------------------------
+Thu Jul  3 10:50:45 UTC 2025 - Perry Werneck <perry.werneck@gmail.com>
+
+- Moving to meson build system
+
+-------------------------------------------------------------------
+Fri Apr 26 15:10:45 UTC 2024 - Perry Werneck <perry.werneck@gmail.com>
+
+- First build on OBS. 

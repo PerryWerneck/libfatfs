@@ -1,0 +1,9 @@
+prefix=/usr
+includedir=${prefix}/include
+
+Name: libfatfs
+Description: FAT file system library for embedded systems
+Version: 0.15
+Libs: -l:libfatfs.a
+Cflags: -I${includedir}
+
