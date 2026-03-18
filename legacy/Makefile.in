@@ -60,7 +60,8 @@ BINRLS=$(BINDIR)/Release
 CFLAGS= \
 	@CFLAGS@ \
 	-fPIC \
-	-Isource
+	-Iinclude \
+	-Iinclude/fatfs
 
 LDFLAGS=\
 	@LDFLAGS@
@@ -161,15 +162,15 @@ install: \
 		$(DESTDIR)$(includedir)/fatfs
 
 	@$(INSTALL_DATA) \
-		source/diskio.h \
+		include/fatfs/diskio.h \
 		$(DESTDIR)$(includedir)/fatfs
 
 	@$(INSTALL_DATA) \
-		source/ffconf.h \
+		include/fatfs/ffconf.h \
 		$(DESTDIR)$(includedir)/fatfs
 
 	@$(INSTALL_DATA) \
-		source/ff.h \
+		include/fatfs/ff.h \
 		$(DESTDIR)$(includedir)/fatfs
 
 	@$(MKDIR) \
