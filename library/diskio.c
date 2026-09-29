@@ -173,16 +173,20 @@ DRESULT disk_ioctl (
 	case GET_SECTOR_COUNT:
 		{
 			struct stat st;
-			if(fstat(disks[pdrv],&st) < 0) {
+
+			if (fstat(disks[pdrv], &st) < 0)
 				return RES_ERROR;
-			}
-			*((UINT *) buff) = st.st_blocks;
+
+			*(LBA_t *)buff = (LBA_t)(st.st_size / SECTOR_LENGTH);
 		}
 		break;
 
 	case GET_SECTOR_SIZE:
+		*(WORD *)buff = (WORD)SECTOR_LENGTH;
+		break;	
+
 	case GET_BLOCK_SIZE:
-		*((UINT *) buff) = (UINT) 512;
+		*(LBA_t *)buff = 1;
 		break;
 
 	case CTRL_TRIM:
@@ -213,3 +217,17 @@ DWORD get_fattime (void) {
            (DWORD)stm->tm_sec >> 1;
 }
 
+#if FF_MULTI_PARTITION
+#define LD2PD(vol) VolToPart[vol].pd
+#define LD2PT(vol) VolToPart[vol].pt
+
+PARTITION VolToPart[FF_VOLUMES] = {
+	{0, 1},	/* "0:" → partition 1 on physical drive 0 */
+	{0, 2},	/* "1:" → partition 2 on physical drive 0 */
+	{0, 3},	/* "2:" → partition 3 on physical drive 0 */
+	{0, 4}	/* "3:" → partition 4 on physical drive 0 */
+};
+#else
+#define LD2PD(vol) (BYTE)(vol)
+#define LD2PT(vol) 0
+#endif
