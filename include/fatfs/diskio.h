@@ -54,6 +54,7 @@ DRESULT disk_ioctl (BYTE pdrv, BYTE cmd, void* buff);
 #define CTRL_LOCK			6	/* Lock/Unlock media removal */
 #define CTRL_EJECT			7	/* Eject media */
 #define CTRL_FORMAT			8	/* Create physical format on the media */
+#define CTRL_BIND_FD		9	/* Bind file handle to media */
 
 /* MMC/SDC specific ioctl command (Not used by FatFs) */
 #define MMC_GET_TYPE		10	/* Get card type */

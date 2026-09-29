@@ -156,7 +156,7 @@ DRESULT disk_ioctl (
 		return STA_NODISK;
 	}
 
-	if(cmd == CTRL_FORMAT) {
+	if(cmd == CTRL_BIND_FD) {
 		disks[pdrv] = *((int *) buff);
 		return RES_OK;
 	}
