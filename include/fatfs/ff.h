@@ -367,7 +367,7 @@ TCHAR* f_gets (TCHAR* buff, int len, FIL* fp);						/* Get a string from the fil
 #define f_unmount(path) f_mount(0, path, 0)
 
 
-
+const char * f_strerror (FRESULT result);
 
 /*--------------------------------------------------------------*/
 /* Additional Functions                                         */

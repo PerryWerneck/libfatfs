@@ -64,6 +64,7 @@ add_project_arguments(cc.get_supported_arguments(compiler_flags), language: 'c')
 
 lib_src = [
   'library/diskio.c', 
+  'library/errors.c', 
   'source/ff.c',
   'source/ffsystem.c',  
   'source/ffunicode.c',
@@ -88,26 +89,20 @@ endif
 #
 # Targets
 #
-static_library = declare_dependency(
-  link_with : static_library(
-    'fatfs', 
-    lib_src,
-    install: true,
-    c_args: [ '-fno-lto' ],
-    include_directories: [ 'include', 'include/fatfs' ],
-  ),
-  include_directories: [ 'include' ],
+
+# library() honors default_library=static|shared|both from the parent.
+libfatfs = library(
+  meson.project_name(),
+  lib_src,
+  install: true,
+  version : libversion,
+  soversion : libversion,
+  c_args: [ '-fno-lto' ],
+  include_directories: [ 'include', 'include/fatfs' ],
 )
 
-dynamic_library = declare_dependency(
-  link_with : shared_library(
-    meson.project_name(), 
-    lib_src,
-    install: true,
-    version : libversion,
-    soversion : libversion,
-    include_directories: [ 'include', 'include/fatfs' ],
-  ),
+libfatfs_dep = declare_dependency(
+  link_with : libfatfs,
   include_directories: [ 'include' ],
 )
 
